@@ -7,3 +7,13 @@ https://dev.socrata.com/docs/queries/
 link for the SODA python package
 https://github.com/xmunoz/sodapy
 
+link for CAHPS
+https://data.medicare.gov/Hospital-Compare/Outpatient-and-Ambulatory-Surgery-Consumer-Assessm/yizn-abxn
+
+link for readmission rates
+https://data.medicare.gov/Hospital-Compare/Unplanned-Hospital-Visits-Hospital/632h-zaca
+
+
+
+
+
