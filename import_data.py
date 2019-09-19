@@ -4,11 +4,11 @@ import json
 
 auth = ('9asut06cuhbleteyw87dhfibv', '4bllkisduibcmxokd9r9xv0bkiwo3a2lhl87oz14yflogimhzf')
 
-url = "https://data.medicare.gov/resource/qk5r-kh7u.json"
+url = "https://data.medicare.gov/resource/qk5r-kh7u.json?$limit=5000"
 r=requests.get(url, auth=auth).json()
 cahps_df = pd.DataFrame.from_records(r)
 
-url2 = "https://data.medicare.gov/resource/r32h-32z5.json?$where=measure_name = 'Rate of readmission after discharge from hospital (hospital-wide)' AND score != 'Not Available'"
+url2 = "https://data.medicare.gov/resource/r32h-32z5.json?$limit=5000&$where=measure_name= 'Rate of readmission after discharge from hospital (hospital-wide)' AND score != 'Not Available'"
 r2=requests.get(url2, auth=auth).json()
 readm_df = pd.DataFrame.from_records(r2)
 
