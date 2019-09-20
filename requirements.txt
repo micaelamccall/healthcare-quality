@@ -1,2 +1,4 @@
 sodapy
 pandas
+requests
+json
