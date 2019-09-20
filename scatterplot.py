@@ -1,7 +1,21 @@
 import matplotlib.pyplot as plt
-from combineData import mergedOC_df, mergedMUA_df
+from combineData import mergedMUA_df
 import seaborn as sns
 
-qual = mergedMUA_df
+plt_df = mergedMUA_df
+
+plt_df.dtypes
+
+int_list=['patients_rating_of_the_facility_linear_mean_score', 'communication_about_your_procedure_linear_mean_score','facilities_and_staff_linear_mean_score', 'number_of_completed_surveys','number_of_sampled_patients', 'patients_recommending_the_facility_linear_mean_score','patients_who_gave_the_facility_a_rating_of_0_to_6_on_a_scale_from_0_lowest_to_10_highest', 'patients_who_gave_the_facility_a_rating_of_7_or_8_on_a_scale_from_0_lowest_to_10_highest', 'patients_who_gave_the_facility_a_rating_of_9_or_10_on_a_scale_from_0_lowest_to_10_highest','patients_who_reported_no_they_would_not_recommend_the_facility_to_family_or_friends','patients_who_reported_probably_yes_they_would_recommend_the_facility_to_family_or_friends','patients_who_reported_that_staff_definitely_communicated_about_what_to_expect_during_and_after_the_procedure', 'patients_who_reported_that_staff_definitely_gave_care_in_a_professional_way_and_the_facility_was_clean', 'patients_who_reported_that_staff_did_not_communicate_about_what_to_expect_during_and_after_the_procedure', 'patients_who_reported_that_staff_did_not_give_care_in_a_professional_way_or_the_facility_was_not_clean','patients_who_reported_that_staff_somewhat_communicated_about_what_to_expect_during_and_after_the_procedure','patients_who_reported_that_staff_somewhat_gave_care_in_a_professional_way_or_the_facility_was_somewhat_clean','patients_who_reported_yes_they_would_definitely_recommend_the_facility_to_family_or_friends', 'survey_response_rate_percent']
+
+for col in int_list:
+    plt_df[col] = plt_df[col].astype('int')
+
+
+plt_df['rate_of_readmission'].dtypes
+
+
+
+
 sns.set(style='white')
 sns.relplot(data = qual, x = "rate_of_readmission", y = "patients_rating_of_the_facility_linear_mean_score", hue = "is-MUA?")
