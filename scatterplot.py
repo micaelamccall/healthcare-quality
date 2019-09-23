@@ -21,9 +21,6 @@ for i in range(3):
             d.axes[i][j].set_xlabel(replacements[xlabel])
         if ylabel in replacements.keys():
             d.axes[i][j].set_ylabel(replacements[ylabel])
-
-
-
 plt.close()
 
 

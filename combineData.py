@@ -16,6 +16,11 @@ mergedMUA_df['MUA-status-desc'] = mergedMUA_df['MUA-status-desc'].fillna(value="
 mergedMUA_df['MUA-population-type'] = mergedMUA_df['MUA-population-type'].fillna(value="None")
 mergedMUA_df['Rural Status Description'] = mergedMUA_df['Rural Status Description'].fillna(value="No Info")
 
+# Fill missing count values with 0 (0 respondents)
+fill_list=['number_of_completed_surveys','number_of_sampled_patients','patients_rating_of_the_facility_linear_mean_score','patients_who_gave_the_facility_a_rating_of_0_to_6_on_a_scale_from_0_lowest_to_10_highest','patients_who_gave_the_facility_a_rating_of_7_or_8_on_a_scale_from_0_lowest_to_10_highest','patients_who_gave_the_facility_a_rating_of_9_or_10_on_a_scale_from_0_lowest_to_10_highest','patients_who_reported_no_they_would_not_recommend_the_facility_to_family_or_friends','patients_who_reported_probably_yes_they_would_recommend_the_facility_to_family_or_friends','patients_who_reported_that_staff_definitely_communicated_about_what_to_expect_during_and_after_the_procedure','patients_who_reported_that_staff_definitely_gave_care_in_a_professional_way_and_the_facility_was_clean','patients_who_reported_that_staff_did_not_communicate_about_what_to_expect_during_and_after_the_procedure','patients_who_reported_that_staff_did_not_give_care_in_a_professional_way_or_the_facility_was_not_clean','patients_who_reported_that_staff_somewhat_communicated_about_what_to_expect_during_and_after_the_procedure','patients_who_reported_that_staff_somewhat_gave_care_in_a_professional_way_or_the_facility_was_somewhat_clean','patients_who_reported_yes_they_would_definitely_recommend_the_facility_to_family_or_friends']
+for col in fill_list:
+    mergedMUA_df.loc[:,col] = mergedMUA_df.loc[:,col].fillna(value=0)
+
 # Check columns and counts of merged MUA DataFrame
 all_counts = exploreData.get_counts(mergedMUA_df)
 all_cols = exploreData.get_cols(mergedMUA_df)
