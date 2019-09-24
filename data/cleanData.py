@@ -1,6 +1,6 @@
 import pandas as pd
-from getData import cahps_df, mua_df, readm_df
-import exploreData
+from data.getData import cahps_df, mua_df, readm_df
+import data.exploreData as exploreData
 
 # Function to use for MUA dataset
 def yesno(df, column, yescat):

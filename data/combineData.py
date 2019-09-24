@@ -1,6 +1,6 @@
 import pandas as pd
-from cleanData import mua_df_clean, readm_df_clean, cahps_df_clean
-import exploreData
+from data.cleanData import mua_df_clean, readm_df_clean, cahps_df_clean
+import data.exploreData as exploreData
 
 # Merge readmission and patient report outcome measure DataFrames
 mergedOC_df = cahps_df_clean.merge(readm_df_clean, how='left', on=['facility_name','address','city','county_name','state','zip'])

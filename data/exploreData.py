@@ -1,5 +1,5 @@
 import pandas as pd
-from getData import cahps_df, mua_df, readm_df
+from data.getData import cahps_df, mua_df, readm_df
 
 
 #define some helpful functions
