@@ -1,4 +1,4 @@
-from combineData import mergedMUA_df
+from data.combine import mergedMUA_df
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
