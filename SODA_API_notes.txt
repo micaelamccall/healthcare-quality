@@ -35,4 +35,7 @@ results3 = client.get("r32h-32z5", where = "measure_name = 'Rate of readmission 
 results3_df = pd.DataFrame.from_records(results3)
 
 
+Areas with an IMU score of 62 or less are designated as MUAs. Some areas with higher scores, however, are still underserving certain specific populations (such as those with low-income, or non-English speakers). T
+
+
 
