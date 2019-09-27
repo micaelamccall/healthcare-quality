@@ -4,23 +4,19 @@
 
 # Intro
 
-Working in a hospital has given me an appreciation of the complexity of such systems and the diversity of interested parties. This complexity is reflected in the numerous outcome measures that are used to assess the quality of healthcare facilities.
+Working in a hospital has given me an appreciation of the complexity of helthcare outcome measures and the diversity of interested parties. This project aims to explore outcome measures and indices of medical underservice, in order to reveal potential areas for investment. 
 
-## Why is readmission rate important?
+## Radmission rate and patient satisfaction 
 
-Unplanned readmissions are very costly and often preventable. This outcome measure is often used by entities such as Center for Medicaid Services (CMS) to evaluate a facility. 
-## Why is patient satistfaction important?
+Unplanned readmissions are very costly and often preventable. The metric of readmission rate is thus used by entities, such as Center for Medicaid Services (CMS), to evaluate a facility. 
 
-Healthcare is a *service* that can also be evaluated by *patient reported outcome measures* (PRAMs) such as the Consumer Assessment of Healthcare Providers and Systems (CAHPS). 
-
-
+Additionally, healthcare is a *service* that can also be evaluated by *patient reported outcome measures* (PRAMs) such as the Consumer Assessment of Healthcare Providers and Systems (CAHPS). 
 
 ## Improving outcome measures in medically underserved areas
 
-Tasks such as follow-up calls and medication reconciliation demand resources. Therefore, facilities in medically underserved areas (MUAs) may struggle to achieve high levels of patient satisfaction and decrease readmission rates. 
+Tasks such as follow-up calls and medication reconciliation demand resources. Therefore, facilities in medically underserved areas (MUAs)may struggle to achieve high levels of patient satisfaction and decrease readmission rates.
 
-CMS uses a number of measures, such as physicians per 1000 population, and infant mortality rates, to identify MUAs. 
-
+CMS uses a number of measures, such as physicians per 1000 population,and infant mortality rates, to identify MUAs. 
 
 # Project goals
 
@@ -46,7 +42,7 @@ I used [CMS's API](https://dev.socrata.com) to combile data
 
 If you're using anaconda, clone this repo and create my conda environment from the terminal by running  `conda env create -f environment.yml`
 
-If you're using pip, install requirements with `pip install -r requirements.txt`
+If you're using pip, install packages with `pip install -r requirements.txt`
 
 # Usage
 
