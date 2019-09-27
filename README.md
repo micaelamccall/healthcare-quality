@@ -44,6 +44,8 @@ If you're using anaconda, clone this repo and create my conda environment from t
 
 If you're using pip, install packages with `pip install -r requirements.txt`
 
+To query the SODA API by running `dataclean/get.py`, [create a SODA key](https://dev.socrata.com/docs/app-tokens.html), then create a file called `private.py` in the /healthcare_quality directory of the project, and paste the API_TOKEN and API_SECRET into that file. 
+
 # Usage
 
 # Findings
