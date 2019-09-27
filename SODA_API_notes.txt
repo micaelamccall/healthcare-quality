@@ -7,19 +7,6 @@ results = client.get("v7vx-dht4", limit=2000)
 results_df=pd.DataFrame.from_records(results)
 
 
-link for the noSQL keywords for SODA API:
-https://dev.socrata.com/docs/queries/
-
-link for the SODA python package
-https://github.com/xmunoz/sodapy
-
-link for CAHPS
-https://data.medicare.gov/Hospital-Compare/Outpatient-and-Ambulatory-Surgery-Consumer-Assessm/yizn-abxn
-
-link for readmission rates
-https://data.medicare.gov/Hospital-Compare/Unplanned-Hospital-Visits-Hospital/632h-zaca
-
-
 sodapy:
 from sodapy import Socrata
 client = Socrata("data.medicare.gov", None)
@@ -37,5 +24,13 @@ results3_df = pd.DataFrame.from_records(results3)
 
 Areas with an IMU score of 62 or less are designated as MUAs. Some areas with higher scores, however, are still underserving certain specific populations (such as those with low-income, or non-English speakers). T
 
+
+
+Sometimes, these outcome measures can come into conflict with each other. For instance, swift handoff can make patients feel like they aren't being given attention. So, patient satisfaction can be used as a balance measure for interventions aiming to affect another outcome measure. 
+
+Certain interventions can reduce unplanned readmissions, such as:
+ - medication reconciliation
+ - follow-up phone calls
+ - handoff to PCPs promptly after surgery
 
 

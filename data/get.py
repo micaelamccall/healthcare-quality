@@ -1,7 +1,6 @@
 import pandas as pd 
 import requests
 import json
-import settings
 
 API_TOKEN=''
 API_SECRET=''

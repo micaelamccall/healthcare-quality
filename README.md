@@ -1,27 +1,55 @@
-# Exploring patient satisfaction, readmission, and indices of medical underservice
-## I
+# Exploring patient satisfaction and readmission in medically underserved areas
 
-*python | API queries | *
+*python | API queries | data mining | data cleaning | data visualization*
 
-## Background
+# Intro
 
-Working in a hospital has given me an appreciation of the complexity of the systems at play and the diversity of interested parties. his complexity is reflected in the numerous outcomes measures that are used to assess the quality of healthcare facilities.
+Working in a hospital has given me an appreciation of the complexity of such systems and the diversity of interested parties. This complexity is reflected in the numerous outcome measures that are used to assess the quality of healthcare facilities.
 
-Readmission rate is a crucial outcome measure because unplanned readmissions are very costly and often preventable. This outcome measure is often used by entities such as CMS to evaluate a facility. Certain interventions can reduce unplanned readmissions, such as:
- - medication reconciliation
- - follow-up phone calls
- - handoff to PCPs promptly after surgery
+## Why is readmission rate important?
 
-Another another outcome measure is patient satisfaction, as reflected in patient reported outcome measures (PRAMs) such as the Consumer Assessment of Healthcare Providers and Systems (CAHPS). 
+Unplanned readmissions are very costly and often preventable. This outcome measure is often used by entities such as Center for Medicaid Services (CMS) to evaluate a facility. 
+## Why is patient satistfaction important?
 
- Sometimes, these outcome measures can come into conflict with each other. For instance, swift handoff can make patients feel like they aren't being given attention. So, patient satisfaction can be used as a balance measure for interventions aiming to affect another outcome measure.
+Healthcare is a *service* that can also be evaluated by *patient reported outcome measures* (PRAMs) such as the Consumer Assessment of Healthcare Providers and Systems (CAHPS). 
 
 
-## Goals
 
-CMS (data.medicare.gov) has large datasets on readmissions, by hospital, and CAHPS outcomes by hospital. I was interested in exploring these data sets and the relatioships between readmission rates and CAHPS outcomes.
+## Improving outcome measures in medically underserved areas
 
-Additionally, tasks such as follow-up calls and medication reconciliation require large staff investments. CMS also identifies and rates Medically Underserved Areas (MUAs) and a number of related measures. I wanted to explore the relationship between these measures and the outcome measures listed above.
+Tasks such as follow-up calls and medication reconciliation demand resources. Therefore, facilities in medically underserved areas (MUAs) may struggle to achieve high levels of patient satisfaction and decrease readmission rates. 
+
+CMS uses a number of measures, such as physicians per 1000 population, and infant mortality rates, to identify MUAs. 
 
 
-Can facilities in underserved areas achieve high levels of patient satisfaction and reasonable readmission rates?
+# Project goals
+
+In this project, I aimed to explore the relationships between readmission rates and CAHPS outcomes in MUAs and non-MUAs. I hoped to answer these questions:
+
+- Does readmission rate and patient satisfaction have a positive correlation, or must we make tradeoffs in improvements?
+- Are measures used to determine MUA status related to a facility's outcome measures? 
+- Should investments aimed at improving outcome measure target MUA measures? 
+
+
+
+# Data
+I used [CMS's API](https://dev.socrata.com) to combile data 
+ on 
+ - [readmissions by hospital](https://data.medicare.gov/Hospital-Compare/Unplanned-Hospital-Visits-Hospital/632h-zaca
+), 
+- [CAHPS outcomes by hospital](https://data.medicare.gov/Hospital-Compare/Outpatient-and-Ambulatory-Surgery-Consumer-Assessm/yizn-abxn
+), and 
+- [Medically Underserved Areas + measures](https://bhw.hrsa.gov/shortage-designation)
+
+
+# Setup
+
+If you're using anaconda, clone this repo and create my conda environment from the terminal by running  `conda env create -f environment.yml`
+
+If you're using pip, install requirements with `pip install -r requirements.txt`
+
+# Usage
+
+# Findings
+
+
