@@ -20,7 +20,3 @@ metadat = client.get_metadata("r32h-32z5")
 [x for x in metadat['columns'] if x['name']=='Score'][0]
 results3 = client.get("r32h-32z5", where = "measure_name = 'Rate of readmission after discharge from hospital (hospital-wide)' AND score !='Not Available'", limit = 3000)
 results3_df = pd.DataFrame.from_records(results3)
-
-
-So, patient satisfaction can be used as a balance measure for interventions aiming to affect another outcome measure. 
-
