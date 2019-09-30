@@ -58,8 +58,8 @@ Optional for connecting to SODA API:
 
 Scripts are in the `healthcare_quality` directory
 
-View or run each code cell in the `healthcare-quality.ipynb` notebook sequentially.
-- `healthcare-quality.ipynb` contains plotly version of the plots
+View or run each code cell in the `healthcare_quality.ipynb` notebook sequentially.
+- `healthcare_quality.ipynb` contains plotly version of the plots
 - Make sure to "trust" the notebook or the plotly plots may not show
 
 OR
