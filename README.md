@@ -37,8 +37,6 @@ I queried this API to combile data
 ), and 
 - [Medically Underserved Areas + measures](https://bhw.hrsa.gov/shortage-designation)
 
-![map](healthcare_quality/plots/map.html "Map")
-
 ![map](healthcare_quality/plots/map.png "Map")
 
 # Setup
@@ -57,6 +55,8 @@ Optional for connecting to SODA API:
 
 
 # Usage
+
+Scripts are in the `healthcare_quality` directory
 
 View or run each code cell in the `healthcare-quality.ipynb` notebook sequentially.
 - `healthcare-quality.ipynb` contains plotly version of the plots
