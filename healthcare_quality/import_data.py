@@ -6,7 +6,7 @@ API_TOKEN=''
 API_SECRET=''
 
 try:
-    from .private import *
+    from private import *
 except Exception: 
     pass
 
@@ -19,10 +19,11 @@ for query in queries:
     if len(API_TOKEN)>0:
         r=requests.get(query[0], auth=auth).json()
         query[1] = pd.DataFrame.from_records(r)
-        print("Querying SODA API without auth")
     else:
         r=requests.get(query[0]).json()
         query[1] = pd.DataFrame.from_records(r)
+        print("Querying SODA API without auth")
+
 
 cahps_df = queries[0][1]
 readm_df = queries[1][1]

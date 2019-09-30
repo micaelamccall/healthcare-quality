@@ -1,11 +1,13 @@
 import pandas as pd
+import os
+import sys
+sys.path.append(os.path.abspath("healthcare_quality"))
+
 from healthcare_quality.import_data import cahps_df, mua_df, readm_df
 import healthcare_quality.cleaning.explore as explore
 from healthcare_quality.cleaning.binarize import binarize_categorical_variable
 from healthcare_quality.cleaning.combine import double_merge
-import os
-import sys
-sys.path.append(os.path.abspath("healthcare_quality"))
+
 
 ## CAHPS
 # This removes some columns I'm not interested in and renames the county column

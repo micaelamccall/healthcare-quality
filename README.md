@@ -2,6 +2,7 @@
 
 *python | API queries | data mining | data cleaning | data visualization*
 
+
 # Intro
 
 Working in a hospital has given me an appreciation of the complexity of helthcare outcome measures and the diversity of interested parties. This project aims to explore outcome measures and indices of medical underservice, in order to reveal potential areas for investment. 
@@ -27,7 +28,6 @@ In this project, I aimed to explore the relationships between readmission rates 
 - Should investments aimed at improving outcome measure target MUA measures? 
 
 
-
 # Data from Center for Medicare/Medicaid Services' [API](https://dev.socrata.com) 
 I queried this API to combile data 
  on 
@@ -37,17 +37,43 @@ I queried this API to combile data
 ), and 
 - [Medically Underserved Areas + measures](https://bhw.hrsa.gov/shortage-designation)
 
+![map](healthcare_quality/plots/map.html "Map")
+
+![map](healthcare_quality/plots/map.png "Map")
 
 # Setup
 
-If you're using anaconda, clone this repo and create virtual env by running  `conda env create -f environment.yml` in the terminal
+View this project by cloning the repo and viewing the Jupyter notebook or the raw code
 
-If you're using pip, install packages with `pip install -r requirements.txt`
+- My anaconda venv can be created by running  `conda env create -f environment.yml` in the terminal
 
-To query the SODA API by running `dataclean/get.py`, [create a SODA key](https://dev.socrata.com/docs/app-tokens.html), then create a file called `private.py` in the /healthcare_quality directory of the project, and paste the API_TOKEN and API_SECRET into that file. 
+- If you're using pip, install packages with `pip install -r requirements.txt`
+
+Optional for connecting to SODA API: 
+- Create a SODA key [info here](https://dev.socrata.com/docs/app-tokens.html)
+- Create a `private.py` in the root directory of the project
+- set the values API_TOKEN and API_SECRET in that file
+
+
 
 # Usage
 
+View or run each code cell in the `healthcare-quality.ipynb` notebook sequentially.
+- `healthcare-quality.ipynb` contains plotly version of the plots
+- Make sure to "trust" the notebook or the plotly plots may not show
+
+OR
+
+- Run `clean_data.py` to import each datasets (from `import_data.py`), clean them, and combine them. 
+    - the `cleaning` module contains a few custom scripts that are imported by `clean_data.py`
+- Run `corr.py` to view correlation between variables
+- Run `plots/cahps_resp_dist.py` to veiw seaborn version of distribution the patient experience responses 
+- Run `plots/pairplot.py` to see a seaborn pairplot of the patient experience measures and one of the MUA measures
+- Run `plots/mua_scatter.py` to see seaborn scatterplots of readmission rate and patient experience measures
+
+
+
 # Findings
 
-
+- My exploration showed that while minor, there is a negative association between measures of patient satisfaction and readmission rates (as I expected). This suggests that hospital administrators shouldn't necessarily be concerned that measures to decrease readmission rates would decrease patient satisfaction.
+- Additionally, the relationship between MUA status and measures is minimal. It appears that the underlying causes of these factors may be different. An important note is that these measures only cover a subset of the ways in which patients are medically underserved. Some areas with higher IMU scores may be underserving certain specific populations (such as those with low-income, or non-English speakers).
