@@ -1,1 +1,1 @@
-healthcare_quality/notebooks/* linguist-vendored
+*.ipynb linguist-vendored
