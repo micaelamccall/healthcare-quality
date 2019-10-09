@@ -80,3 +80,4 @@ if __name__ == '__main__':
             "Readmission Rate", 
             "Patients' Mean Recommendation of the Facility", 
             ["MUA", "MUP Low Income", "None", "MUP Other Pop", "MUP Medicaid", "MUP Homeless"]])
+

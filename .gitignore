@@ -4,3 +4,4 @@ private.py
 .Rhistory
 **/__pycache__
 .DS_Store
+**/.vscode
