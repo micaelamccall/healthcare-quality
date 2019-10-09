@@ -6,5 +6,3 @@ corr = {
     "recommendation" : merged_df.corr()['patients_recommending_the_facility_linear_mean_score'], 
     "overall rating" : merged_df.corr()['patients_rating_of_the_facility_linear_mean_score']}
 corr = pd.DataFrame(corr)
-
-

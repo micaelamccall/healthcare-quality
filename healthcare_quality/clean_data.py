@@ -1,12 +1,8 @@
 import pandas as pd
-import os
-import sys
-sys.path.append(os.path.abspath("healthcare_quality"))
-
 from healthcare_quality.import_data import cahps_df, mua_df, readm_df
 import healthcare_quality.cleaning.explore as explore
 from healthcare_quality.cleaning.binarize import binarize_categorical_variable
-from healthcare_quality.cleaning.combine import double_merge
+from healthcare_quality.cleaning.combine import double_merge, cleanup_merged_df
 
 
 ## CAHPS
@@ -132,61 +128,19 @@ merge2=['state', 'county_name'] #the column on which to merge mua_df_clean with 
 
 merged_df=double_merge(cahps_df_clean, readm_df_clean, mua_df_clean, merge1, merge2).drop_duplicates(subset="address")
 
-## This filters out rows where the mean facility rating and rate of readmission are null
-merged_df = merged_df[merged_df.patients_rating_of_the_facility_linear_mean_score.notnull()]
-merged_df = merged_df[merged_df.rate_of_readmission.notnull()].reset_index()
-
-## Mark rows that existed in the outcome measure (OC) DataFrame but not in the MUA DataFrame as not being MUAs
-merged_df['is-MUA?'] = merged_df['is-MUA?'].fillna(value="No")
-merged_df['MUA-status-desc'] = merged_df['MUA-status-desc'].fillna(value="Not Designated")
-merged_df['MUA-population-type'] = merged_df['MUA-population-type'].fillna(value="None")
-merged_df['Rural Status Description'] = merged_df['Rural Status Description'].fillna(value="No Info")
-
-# Fill missing count values with 0 (0 respondents)
-fill_list=[
-    'number_of_completed_surveys',
-    'number_of_sampled_patients',
-    'patients_rating_of_the_facility_linear_mean_score',
-    'patients_who_gave_the_facility_a_rating_of_0_to_6_on_a_scale_from_0_lowest_to_10_highest',
-    'patients_who_gave_the_facility_a_rating_of_7_or_8_on_a_scale_from_0_lowest_to_10_highest',
-    'patients_who_gave_the_facility_a_rating_of_9_or_10_on_a_scale_from_0_lowest_to_10_highest',
-    'patients_who_reported_no_they_would_not_recommend_the_facility_to_family_or_friends',
-    'patients_who_reported_probably_yes_they_would_recommend_the_facility_to_family_or_friends',
-    'patients_who_reported_that_staff_definitely_communicated_about_what_to_expect_during_and_after_the_procedure',
-    'patients_who_reported_that_staff_definitely_gave_care_in_a_professional_way_and_the_facility_was_clean',
-    'patients_who_reported_that_staff_did_not_communicate_about_what_to_expect_during_and_after_the_procedure',
-    'patients_who_reported_that_staff_did_not_give_care_in_a_professional_way_or_the_facility_was_not_clean',
-    'patients_who_reported_that_staff_somewhat_communicated_about_what_to_expect_during_and_after_the_procedure',
-    'patients_who_reported_that_staff_somewhat_gave_care_in_a_professional_way_or_the_facility_was_somewhat_clean',
-    'patients_who_reported_yes_they_would_definitely_recommend_the_facility_to_family_or_friends']
-
-for col in fill_list:
-    merged_df.loc[:,col] = merged_df.loc[:,col].fillna(value=0)
+# Cleanup merged data
+merged_df=cleanup_merged_df(merged_df)
 
 
-# Check columns and counts of merged MUA DataFrame
-all_counts = explore.get_counts(merged_df)
-all_cols = explore.get_cols(merged_df)
+if __name__ == "__main__":
 
-all_counts[35] #check dist of is-MUA
-all_counts[36] #check dist of MUA-status
-all_counts[48] #check dist of MUA-population-type
+    # Check columns and counts of merged MUA DataFrame
+    all_counts = explore.get_counts(merged_df)
+    all_cols = explore.get_cols(merged_df)
 
-# Check merged MUA data types
-merged_df.dtypes
+    all_counts[35] #check dist of is-MUA
+    all_counts[36] #check dist of MUA-status
+    all_counts[48] #check dist of MUA-population-type
 
-## List columns to be integers, floats, and categories
-int_list = ['patients_rating_of_the_facility_linear_mean_score', 'communication_about_your_procedure_linear_mean_score','facilities_and_staff_linear_mean_score', 'number_of_completed_surveys','number_of_sampled_patients', 'patients_recommending_the_facility_linear_mean_score','patients_who_gave_the_facility_a_rating_of_0_to_6_on_a_scale_from_0_lowest_to_10_highest', 'patients_who_gave_the_facility_a_rating_of_7_or_8_on_a_scale_from_0_lowest_to_10_highest', 'patients_who_gave_the_facility_a_rating_of_9_or_10_on_a_scale_from_0_lowest_to_10_highest','patients_who_reported_no_they_would_not_recommend_the_facility_to_family_or_friends','patients_who_reported_probably_yes_they_would_recommend_the_facility_to_family_or_friends','patients_who_reported_that_staff_definitely_communicated_about_what_to_expect_during_and_after_the_procedure', 'patients_who_reported_that_staff_definitely_gave_care_in_a_professional_way_and_the_facility_was_clean', 'patients_who_reported_that_staff_did_not_communicate_about_what_to_expect_during_and_after_the_procedure', 'patients_who_reported_that_staff_did_not_give_care_in_a_professional_way_or_the_facility_was_not_clean','patients_who_reported_that_staff_somewhat_communicated_about_what_to_expect_during_and_after_the_procedure','patients_who_reported_that_staff_somewhat_gave_care_in_a_professional_way_or_the_facility_was_somewhat_clean','patients_who_reported_yes_they_would_definitely_recommend_the_facility_to_family_or_friends', 'survey_response_rate_percent', 'rate_denominator', 'provider_id']
-float_list = ['rate_of_readmission_higher_estimate', 'rate_of_readmission_lower_estimate', 'rate_of_readmission']
-category_list = ['county_name','state', 'is-MUA?', 'MUA-status-desc', 'MUA-population-type', 'Rural Status Description']
-
-
-## Change data types as above
-for col in int_list:
-    merged_df[col] = merged_df[col].astype('int')
-
-for col in float_list:
-    merged_df[col] = merged_df[col].astype('float')
-
-for col in category_list:
-    merged_df[col] = merged_df[col].astype('category')
+    # Check merged MUA data types
+    merged_df.dtypes

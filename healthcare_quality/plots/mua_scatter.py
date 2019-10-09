@@ -7,14 +7,17 @@ import seaborn as sns
 from matplotlib.lines import Line2D
 
 def sns_scatter_with_category(df, x, y, category, palette, axislabels):
-    """ Creates a customized scatterplot with different colors per category 
-    arguments:
+    """ A function to create a customized scatterplot with different colors per category 
+
+    Arguments:
     df = pandas datafame
     x = column of values for x axis
     y = column of values for y axis
     category = column of categories
     palette = a list of color codes, same length as the number of categories in category
-    axislabels = a list with x axis label first, y axis label 2nd, and a nested list with legend labels 3rd"""
+    axislabels = a list with x axis label first, y axis label 2nd, and a nested list with legend labels 3rd
+    
+    Output: A seaborn plot"""
 
     # sets the background to white and add ticks to the axis
     sns.set_style('white')

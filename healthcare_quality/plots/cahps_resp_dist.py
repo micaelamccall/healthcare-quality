@@ -46,11 +46,14 @@ def sns_resp_by_state(df, columns, names, graphTitle):
     return result
 
 def plotly_resp_by_state(df, columns, names, graphTitle):
-    """Plots the proportion of patients who gave each response to a survey question
-    args:
-    columns = bracketed list of column names
-    names = bracketed list of column names to-be
-    graphTilte = string"""
+    """ A function to plot the proportion of patients who gave each response to a survey question
+    
+    Arguments:
+    columns = the name of the variable columns as a list of strings 
+    names = the to-be names of the variable columns as a list of strings 
+    graphTitle = title of the graph as a string
+    
+    Ouput: plotly plot"""
     
     #group by state
     grp_df=df.groupby(by='state').sum().reset_index()
