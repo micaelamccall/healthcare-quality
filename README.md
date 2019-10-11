@@ -31,13 +31,13 @@ In this project, I aimed to explore the relationships between readmission rates 
 # Data from Center for Medicare/Medicaid Services' [API](https://dev.socrata.com) 
 I queried this API to combile data 
  on 
- - [readmissions by hospital](https://data.medicare.gov/Hospital-Compare/Unplanned-Hospital-Visits-Hospital/632h-zaca
-), 
-- [CAHPS outcomes by hospital](https://data.medicare.gov/Hospital-Compare/Outpatient-and-Ambulatory-Surgery-Consumer-Assessm/yizn-abxn
-), and 
+ - [Readmissions by hospital](https://data.medicare.gov/Hospital-Compare/Unplanned-Hospital-Visits-Hospital/632h-zaca
+)
+- [Patient satisfaction outcomes (CAHPS) by hospital](https://data.medicare.gov/Hospital-Compare/Outpatient-and-Ambulatory-Surgery-Consumer-Assessm/yizn-abxn
+)
 - [Medically Underserved Areas + measures](https://bhw.hrsa.gov/shortage-designation)
 
-![map](healthcare_quality/plots/map.png "Map")
+
 
 # Setup
 
