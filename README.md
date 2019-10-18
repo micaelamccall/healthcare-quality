@@ -39,13 +39,6 @@ I queried this API to combile data
 
 
 
-# Setup
-
-View this project by cloning the repo and viewing the Jupyter notebook or the raw code
-
-- My anaconda venv can be created by running  `conda env create -f environment.yml` in the terminal
-
-- If you're using pip, install packages with `pip install -r requirements.txt`
 
 Optional for connecting to SODA API: 
 - Create a SODA key [info here](https://dev.socrata.com/docs/app-tokens.html)
@@ -53,24 +46,25 @@ Optional for connecting to SODA API:
 - set the values API_TOKEN and API_SECRET in that file
 
 
+# Setup
+
+- My anaconda venv can be created by running  `conda env create -f environment.yml` in the terminal
+- Or, pip install packages with `pip install -r requirements.txt`
 
 # Usage
 
-Scripts are in the `healthcare_quality` directory
+Clone this repo to view project scripts and Jupyter nb in the `healthcare_quality` directory
 
-View or run each code cell in the `healthcare_quality.ipynb` notebook sequentially.
-- `healthcare_quality.ipynb` contains plotly version of the plots
-- Make sure to "trust" the notebook or the plotly plots may not show
+- Project scripts 
+    - `clean_data.py` imports each datasets (from `import_data.py`), cleans them, and combines them. 
+        - the `cleaning` module contains a few custom scripts that are imported by `clean_data.py`
+    - `corr.py` runs some correlations between variables
+    - `plots/cahps_resp_dist.py` plots the distributions the patient experience responses 
+    - `plots/pairplot.py` plots patient experience measures and one of the MUA measures
+    - `plots/mua_scatter.py` plots readmission rate and patient experience measures
 
-OR
-
-- Run `clean_data.py` to import each datasets (from `import_data.py`), clean them, and combine them. 
-    - the `cleaning` module contains a few custom scripts that are imported by `clean_data.py`
-- Run `corr.py` to view correlation between variables
-- Run `plots/cahps_resp_dist.py` to veiw seaborn version of distribution the patient experience responses 
-- Run `plots/pairplot.py` to see a seaborn pairplot of the patient experience measures and one of the MUA measures
-- Run `plots/mua_scatter.py` to see seaborn scatterplots of readmission rate and patient experience measures
-
+- `healthcare_quality.ipynb` contains all the code for the project, as well as plotly version of the plots
+    -  Make sure to "trust" the notebook or the plotly plots may not show
 
 
 # Findings
