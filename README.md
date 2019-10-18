@@ -19,6 +19,8 @@ Tasks such as follow-up calls and medication reconciliation demand resources. Th
 
 CMS uses a number of measures, such as physicians per 1000 population,and infant mortality rates, to identify MUAs. 
 
+![map.png](healthcare_quality/plots/map.png)
+
 # Project goals
 
 In this project, I aimed to explore the relationships between readmission rates and CAHPS outcomes in MUAs and non-MUAs. I hoped to answer these questions:

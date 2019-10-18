@@ -20,10 +20,10 @@ fig.add_trace(go.Scattergeo(
         lat = datayes.lat,    
         name='MUA',
         hoverinfo="text",
-        text = datayes.facility_name + ' , ' + datayes.city + ' , ' + datayes.state,
+        text = datayes.facility_name + ' <br> ' + datayes.city + ' , ' + datayes.state,
         mode = 'markers',
         marker = dict(
-            size = 8,
+            size = 4,
             opacity = 0.8,
             reversescale = True,
             autocolorscale = False,
@@ -33,19 +33,19 @@ fig.add_trace(go.Scattergeo(
                 color='rgba(102, 102, 102)'
             ),
             colorscale = 'Portland',
-            cmin = 0,
+            cmin=0,
             color = location_df['rate_of_readmission'],
-            colorbar_title="Rate of Readmission")))
+            colorbar= dict(len=0.5, title="Rate of Readmission"))))
 fig.add_trace(go.Scattergeo(
         locationmode = 'USA-states',
         lon = datano.lon,
         lat = datano.lat,
         name='not MUA', 
         hoverinfo="text",
-        text = datano.facility_name + ' , ' + datano.city + ' , ' + datano.state,
+        text = datano.facility_name + ' <br> ' + datano.city + ' , ' + datano.state,
         mode = 'markers',
         marker = dict(
-            size = 8,
+            size = 4,
             opacity = 0.8,
             reversescale = True,
             autocolorscale = False,
@@ -55,10 +55,16 @@ fig.add_trace(go.Scattergeo(
                 color='rgba(102, 102, 102)'
             ),
             colorscale = 'Portland',
-            cmin = 0,
+            cmin=0,
             color = location_df['rate_of_readmission'],
-            colorbar_title="Rate of Readmission")))
-fig.update_layout(legend=dict(x=-.1, y=1.2),
+            colorbar= dict(len=0.5, title="Rate of Readmission"))))
+fig.update_layout(
+    legend=dict(x=-.1, y=.9),
+    autosize=False,
+    width=600, height=250,
+    margin=go.layout.Margin(
+        l=1,r=1,b=1,t=1, pad=0
+    ),
         geo = dict(
             scope='usa',
             projection_type='albers usa',
@@ -66,8 +72,8 @@ fig.update_layout(legend=dict(x=-.1, y=1.2),
             landcolor = "rgb(250, 250, 250)",
             subunitcolor = "rgb(217, 217, 217)",
             countrycolor = "rgb(217, 217, 217)",
-            countrywidth = 0.5,
-            subunitwidth = 0.5
+            countrywidth = .5,
+            subunitwidth = .5
         ),
     )
 
@@ -75,4 +81,4 @@ fig.update_layout(legend=dict(x=-.1, y=1.2),
 fig.show()
 
 
-pyo.plot(fig, filename='healthcare_quality/plots/map.html')
+fig.write_image('healthcare_quality/plots/map.png', width=600, height= 300, scale=3)
