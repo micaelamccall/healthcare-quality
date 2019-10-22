@@ -50,7 +50,7 @@ Optional for connecting to SODA API:
 
 # Setup
 
-- My anaconda venv can be created by running  `conda env create -f environment.yml` in the terminal
+- My anaconda env can be created by running  `conda env create -f environment.yml` in the terminal
 - Or, pip install packages with `pip install -r requirements.txt`
 
 # Usage
@@ -59,7 +59,7 @@ Clone this repo to view project scripts and Jupyter nb in the `healthcare_qualit
 
 - Project scripts 
     - `clean_data.py` imports each datasets (from `import_data.py`), cleans them, and combines them. 
-        - the `cleaning` module contains a few custom scripts that are imported by `clean_data.py`
+        - the `cleaning` module contains some functions that are used in `clean_data.py`
     - `corr.py` runs some correlations between variables
     - `plots/cahps_resp_dist.py` plots the distributions the patient experience responses 
     - `plots/pairplot.py` plots patient experience measures and one of the MUA measures
