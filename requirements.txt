@@ -1,5 +1,5 @@
 ipykernel==4.9.0
-ipython==6.5.0
+ipython==7.16.3
 jsonschema==2.6.0
 numpy==1.15.1
 pandas==0.23.4
